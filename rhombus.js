@@ -6,10 +6,8 @@
 function createRhombus(pHeight, pColorEven, pColorOdd, pSymbol) {
 upRight(pHeight, pColorEven, pColorOdd, pSymbol);
 downRight(pHeight, pColorEven, pColorOdd, pSymbol);
-
-}
-
-function upLeft(pHeight, pColorEven, pColorOdd, pSymbol){
+upLeft(pHeight, pColorEven, pColorOdd, pSymbol);
+downLeft(pHeight, pColorEven, pColorOdd, pSymbol);
 
 }
 
@@ -20,7 +18,7 @@ function upLeft(pHeight, pColorEven, pColorOdd, pSymbol){
     //Filling the left side of every row with spaces or blanks
     for (x=1; x<=pHeight - i; x ++) {
        // rLine +="-";
-    rLine +="<span class ='space'> </span>" + sSymbol + "</span>";
+    rLine +="<span class ='space'> + Symbol + "</span>";
     }
     //Create each line on the Rhombus
     for(j=x;j<=pHeight;j++){
