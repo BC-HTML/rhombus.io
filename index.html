@@ -1,17 +1,116 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Bullseye! Tutoring</title>
-		<link rel="stylesheet" href="/module05/style.css"/>
+		<meta charset="utf-8" />
+		<title>Artifact #3: Rhombus</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="styles.css" />
 	</head>
 	<body>
-		<section id="page2">
-			<h1>Bullseye</h1>
-			<img src="/module05/images/teacher.png" id="teacher" alt="teacher"/>
-			<div id="blackboard"></div>
-		</section>
-		<script src="/module05/javascript.js"></script>
+		<main>
+			<header>
+				<h1> Rhombus by Abdul Ndiaye!</h1>
+			</header>
+			<div id="container">
+				<article id="rhombusControls">
+					<h3>Edit the parameters</h3>
+					<div class="formItem">
+						<label>Size of Rhombus?</label>
+						<input type="number" id="height" value="5" />
+					</div>
+
+					<div class="formItem">
+						<label>Choose color for Even positions</label>
+						<select id="colorEven">
+							<option value="#03045eff" style="color: #03045eff">
+								Navy Blue
+							</option>
+							<option value="#023e8aff" style="color: #023e8aff">
+								Dark Cornflower Blue
+							</option>
+							<option value="#0077b6ff" style="color: #0077b6ff">
+								Star Command Blue
+							</option>
+							<option value="#0096c7ff" style="color: #0096c7ff">
+								Blue Green
+							</option>
+							<option value="#00b4d8ff" style="color: #00b4d8ff">
+								Cerulean Crayola
+							</option>
+							<option value="#48cae4ff" style="color: #48cae4ff">
+								Sky Blue Crayola
+							</option>
+							<option value="#ade8f4ff" style="color: #ade8f4ff">
+								Blizzard Blue
+							</option>
+							<option value="#caf0f8ff" style="color: #caf0f8ff">
+								Powder Blue
+							</option>
+						</select>
+					</div>
+
+					<div class="formItem">
+						<label>Choose color for Odd positions</label>
+						<select id="colorOdd">
+							<option value="#641220ff" style="color: #641220ff">
+								Persian Plum
+							</option>
+							<option value="#6e1423ff" style="color: #6e1423ff">
+								Burgundy
+							</option>
+							<option value="#85182aff" style="color: #85182aff">
+								AntiqueR uby
+							</option>
+							<option value="#a11d33ff" style="color: #a11d33ff">
+								Crimson
+							</option>
+							<option value="#b21e35ff" style="color: #b21e35ff">Red</option>
+							<option value="#c71f37ff" style="color: #c71f37ff">
+								Cardinal
+							</option>
+							<option value="#e01e37ff" style="color: #e01e37ff">
+								Rose Madder
+							</option>
+						</select>
+					</div>
+					<div class="formItem">
+						<label>Choose symbol for Rhombus</label>
+						<select id="symbol">
+							<option value="!">!</option>
+							<option value="@">@</option>
+							<option value="#">#</option>
+							<option value="$">$</option>
+							<option value="%">%</option>
+							<option value="^">^</option>
+							<option value="&">&</option>
+							<option value="*" selected="selected">*</option>
+							<option value="-">-</option>
+							<option value="+">+</option>
+							<option value="=">=</option>
+						</select>
+					</div>
+
+					<div class="formItem">
+						<button
+							onclick="createRhombus(
+											getVal('height'),
+											getVal('colorEven'),
+											getVal('colorOdd'),
+											getVal('symbol')
+										);"
+						>
+							Display Rhombus
+						</button>
+					</div>
+				</article>
+				<article id="rhombusDisplay">
+					<h4>The rhombus will be generated here</h4>
+				</article>
+			</div>
+		</main>
+		<script src="scripts.js" async defer></script>
 	</body>
 </html>
