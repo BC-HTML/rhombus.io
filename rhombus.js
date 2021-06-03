@@ -1,97 +1,32 @@
-// var rHeight =5;
-// var colorEven = "orange";
-// var colorOdd = "black";
-// var symbol ="*";
+/**
+ * Abdoulaye Ndiaye 
+ * 05/30/2021
+ * Module05 Assignment
+ */
+ window.onload = function () {
+	var table = prompt("Enter a number between zero and ten!"); // ask user for a number
+	while (!verify(table)) {
+		table = prompt(
+			"Sorry! That didn't work. Please enter a number between zero and ten"
+		);
+	}
 
-function createRhombus(pHeight, pColorEven, pColorOdd, pSymbol) {
-    upRight(pHeight, pColorEven, pColorOdd, pSymbol);
-    downRight(pHeight, pColorEven, pColorOdd, pSymbol);
-    upLeft(pHeight, pColorEven, pColorOdd, pSymbol);
-    downLeft(pHeight, pColorEven, pColorOdd, pSymbol);
-}
+	var output = "<h2>Multiplication Table</h2>"; // This is what will be place in #blackboard
 
-function upLeft(pHeight, pColorEven, pColorOdd, pSymbol) {
-    var rLine ="";
-    for (i=0;i<pHeight;i++){
-        rLine +="<p>";
-            //Create each line on the Rhombus
-            for (n=0;n<(pHeight-(i+1));n++){
-                //rLine +="&nbsp;&nbsp;";
-                rLine +="<span class='space'>" + pSymbol +"</span>";
-            }
-            for(j=0;j<=i;j++){
-                //Is the position even or odd so we change the color
-                if (j%2)
-                    //even
-                    rLine +="<span style='color:" + pColorEven + ";'>" + pSymbol +"</span>";
-                else
-                    //odd
-                    rLine +="<span style='color:" + pColorOdd + ";'>" + pSymbol +"</span>";
-            }
-            rLine +="</p>";
-            // console.log(rLine);
-    }
-    document.getElementById("upLeft").innerHTML = rLine;
-}
+	// run this loop ten times (from 1 to 10)
+	for (var i = 1; i <= 10; i++) {
+		//add a new line to the output
+		output += i + " × " + table + " = " + i * table + "<br />";
+	}
 
-function upRight(pHeight, pColorEven, pColorOdd, pSymbol){
-    var rLine ="";
-    for (i=0;i<pHeight;i++){
-        rLine +="<p>";
-        //Create each line on the Rhombus
-        for(j=0;j<=i;j++){
-            //Is the position even or odd so we change the color
-            if (j%2)
-                //even
-                rLine +="<span style='color:" + pColorEven + ";'>" + pSymbol +"</span>";
-            else
-                //odd
-                rLine +="<span style='color:" + pColorOdd + ";'>" + pSymbol +"</span>";
-        }
-        rLine +="</p>";
-        // console.log(rLine);
-    }
-    document.getElementById("upRight").innerHTML = rLine;
-}
+	// Write the message into the page
+	var el = document.getElementById("blackboard");
+	el.innerHTML = output;
 
-function downRight(pHeight, pColorEven, pColorOdd, pSymbol){
-    var rLine ="";
-    for (i=pHeight;i>0;i--){
-        rLine +="<p>";
-        //Create each line on the Rhombus
-        for(j=0;j<i;j++){
-            //Is the position even or odd so we change the color
-            if (j%2)
-                //even
-                rLine +="<span style='color:" + pColorEven + ";'>" + pSymbol +"</span>";
-            else
-                //odd
-                rLine +="<span style='color:" + pColorOdd + ";'>" + pSymbol +"</span>";
-        }
-        rLine +="</p>";
-    }
-    document.getElementById("downRight").innerHTML = rLine;
-}
-
-function downLeft(pHeight, pColorEven, pColorOdd, pSymbol){
-    var rLine ="";
-    for (i=pHeight;i > 0;i--){
-        rLine +="<p>";
-        //Create each line on the Rhombus
-        for (x=0;x<(pHeight-i);x--){
-            rLine +="<span class='space'>" + pSymbol +"</span>"
-        }
-        for(j=0;j<i;j++){
-            //Is the position even or odd so we change the color
-            if (j%2)
-                //even
-                rLine +="<span style='color:" + pColorEven + ";'>" + pSymbol +"</span>";
-            else
-                //odd
-                rLine +="<span style='color:" + pColorOdd + ";'>" + pSymbol +"</span>";
-        }
-        rLine +="</p>";
-        // console.log(rLine);
-    }
-    document.getElementById("downRight").innerHTML = rLine;
-}
+	function verify(num) {
+		if (num >= 0 && num <= 10) {
+			return true;
+		}
+		return false;
+	}
+};
