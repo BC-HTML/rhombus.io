@@ -1,32 +1,49 @@
 /**
- * Abdoulaye Ndiaye 
- * 05/30/2021
- * Module05 Assignment
+ Abdoulaye Ndiaye 
+ Rhombus assigment 
+ 05/31/21
+
+ * @param {Node} elementId
  */
- window.onload = function () {
-	var table = prompt("Enter a number between zero and ten!"); // ask user for a number
-	while (!verify(table)) {
-		table = prompt(
-			"Sorry! That didn't work. Please enter a number between zero and ten"
-		);
-	}
+ function getVal(elementId) {
+	return document.getElementById(elementId).value;
+}
 
-	var output = "<h2>Multiplication Table</h2>"; // This is what will be place in #blackboard
+/**
+ * Generates a rhombus based on the given input
+ * @param {number} height of one section of the rhombus
+ * @param {color} colorEven
+ * @param {color} colorOdd
+ * @param {text} symbol
+ */
+function createRhombus(height, colorEven, colorOdd, symbol) {
+	console.log(height, colorEven, colorOdd, symbol);
 
-	// run this loop ten times (from 1 to 10)
-	for (var i = 1; i <= 10; i++) {
-		//add a new line to the output
-		output += i + " × " + table + " = " + i * table + "<br />";
-	}
+	// total height of the rhombus
+	height = height * 2;
 
-	// Write the message into the page
-	var el = document.getElementById("blackboard");
-	el.innerHTML = output;
+	// get the element which the rhombus will be displayed in
+	const display = document.querySelector("#rhombusDisplay");
+	var text = "";
 
-	function verify(num) {
-		if (num >= 0 && num <= 10) {
-			return true;
+	// row for loop
+	for (var row = 0; row < height; row++) {
+		text += "<div class='rhombusRow'>";
+
+		// get the number of symbols/columns for this row
+		const numCols = row < height / 2 ? (row + 1) * 2 : (height - row) * 2;
+
+		// column for loop
+		for (var col = 1; col <= numCols; col++) {
+			
+			const even = (col <= numCols / 2 ? col : col - numCols / 2) % 2 === 0;
+			text += `<span style="color: ${
+				even ? colorEven : colorOdd
+			}">${symbol}</span>`;
 		}
-		return false;
+		text += "</div>";
 	}
-};
+
+	
+	display.innerHTML = text;
+}
